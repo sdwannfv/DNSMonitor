@@ -23,7 +23,7 @@ NSString *(^dnsCustomDescription)(id) =
     return self;
 }
 
--(void)insert: (NSString *)key  andValue: (id)value {
+-(void)insert:(NSString *)key andValue:(id)value {
     SuffixTreeNode *node = [[SuffixTreeNode alloc] initWithKey:key andValue:value];
     _childen[key] = node;
 }
@@ -42,7 +42,7 @@ NSString *(^dnsCustomDescription)(id) =
         }
         node = _childen[key];
         
-        NSArray<NSString *> *subkeys = [keys subarrayWithRange: NSMakeRange(0, [keys count] - 1)];
+        NSArray<NSString *> *subkeys = [keys subarrayWithRange:NSMakeRange(0, [keys count] - 1)];
         [node sinsert:subkeys andValue:value];
         return;
     }
@@ -64,7 +64,7 @@ NSString *(^dnsCustomDescription)(id) =
         return _value;
     }
 
-    NSArray<NSString *> *subkeys = [keys subarrayWithRange: NSMakeRange(0, [keys count] - 1)];
+    NSArray<NSString *> *subkeys = [keys subarrayWithRange:NSMakeRange(0, [keys count] - 1)];
     SuffixTreeNode *node = _childen[key];
     return [node search: subkeys];
 }
